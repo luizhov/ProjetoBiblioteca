@@ -1,0 +1,23 @@
+###
+POST http://localhost:1234/Create
+content-type: application/json
+
+{
+    "livro":
+    [
+        {
+            "Titulo":"Jogos vorazes",
+            "Autor": "Minha tia",
+            "AnoLancamento":"2020",
+            "Editora":"Curitiba",
+            "Genero": "Ação",
+        }
+    ],
+    "cliente":
+    [
+        {
+            "Nome":"Jonas Brothers",
+            "Cpf":"5568"
+        }
+    ]
+}
