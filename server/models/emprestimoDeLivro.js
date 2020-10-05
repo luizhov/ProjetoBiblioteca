@@ -12,8 +12,14 @@ const emprestimoDeLivro = new mongoose.Schema({
         type: Date,
         required: [true],
     },
-    livro: [livro],
-    cliente: [cliente]  
+    livro: {
+        type : String,
+        required : [true , "O Título do livro é obrigatório."]
+    },
+    cliente: {
+        type : String,
+        required : [true,"O Cpf do cliente é obrigatório"]
+    }  
 
 })
 
