@@ -21,3 +21,35 @@ content-type: application/json
         }
     ]
 }
+
+
+###
+
+
+POST http://localhost:1234/livro/emprestar
+content-type: application/json
+
+{
+    "DataEmprestimo":
+        "2020-10-04",
+        "DataDevolução":"2020-10-11",
+    "livro":
+    [
+        {
+            "Título":"Jogos vorazes",
+            "Autor": "Minha tia",
+            "AnoLancamento":"2020",
+            "Editora":"Curitiba",
+            "Genero": "Ação"
+        }
+    ],
+    "cliente":
+    [
+        {
+            "Nome":"Jonas Brothers",
+            "Cpf":"5568"
+        }
+    ]
+
+
+}
