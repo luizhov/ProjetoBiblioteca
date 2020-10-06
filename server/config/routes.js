@@ -17,6 +17,9 @@ router.get("/livro/deletar/:id", LivroController.deletarLivro);
 
 
 //Cliente
-router.post("/livro/cadastrarCliente", LivroController.cadastrarCliente);
-
+router.post("/cliente/cadastrar", LivroController.cadastrarCliente);
+router.post("/cliente/listar", LivroController.listarCliente);
+router.post("/cliente/listarbycpf", LivroController.listarClienteByCff);
+router.post("/cleinte/delete", LivroController.deletarCliente);
+router.post("/cliente/alterar", LivroController.updateCliente);
 module.exports = router;

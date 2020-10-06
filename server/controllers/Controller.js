@@ -73,6 +73,52 @@ async deletarLivro(req,res){
         res.status(500).json(error);
       }
   }
+  async deletarCliente(req,res){
+    try{
+      
+      
+      var result = await Cliente.findOneAndDelete({"Cpf": req.params.id});
+      res.status(200).json(result);
+  
+    }catch(error){
+      console.log(error);
+      res.status(500).json(error);
+    }
+  }
+  async updateCliente(req,res){
+    try{
+      
+      var result =await livro.findOne({"Cpf": req.body.Cpf});
+      var result = await result.updateOne(req.body);
+      res.status(200).json(result);
+  
+    }catch(error){
+      console.log(error);
+      res.status(500).json(error);
+    }
+  }
+  async listarClienteByCff(req,res){
+    try{
+      
+      var result =await livro.findOne({"Cpf": req.params.Cpf});
+      res.status(200).json(result);
+
+    }catch(error){
+      console.log(error);
+      res.status(500).json(error);
+    }
+}
+async listarCliente(req,res){
+  try{
+    
+   var result =  await Cliente.find();
+    res.status(200).json(result);
+
+  }catch(error){
+    console.log(error);
+    res.status(500).json(error);
+  }
+}
 
 //Emprestimo
     async fazerEmprestimo(req, res) {
@@ -90,5 +136,6 @@ async deletarLivro(req,res){
           res.status(500).json(error);
         }
     }
+
 }
 module.exports = new LivroController();
