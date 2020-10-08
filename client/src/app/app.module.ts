@@ -31,7 +31,7 @@ import { EmprestarComponent } from './views/emprestimo/emprestar/emprestar.compo
     CadastrarclienteComponent,
     
     ListarComponent,
-    
+  
     EmprestarComponent
     
   ],
