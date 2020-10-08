@@ -1,24 +1,4 @@
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Biblioteca</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost:4200/app/Livros/">Livros</a>
-            </li>
-          </ul>
-        </div>
-      </nav>  
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-</head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="http://localhost:4200/">Biblioteca</a>
@@ -49,23 +29,22 @@
                         
                         <!--  Bootstrap table-->
                         <div class="table-responsive">
+                          <h1 align="center"> Lista de Clientes </h1>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col">CPF</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Alterar</th>
+                                        <th scope="col">Deletar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let cli of clientes">
-                                        <th scope="row">1</th>
                                         <td>{{cli.Nome}}</td>
                                         <td>{{cli.Cpf}}</td>
-                                        <td><a routerLink="../../app/cadastrarcliente/{{cli._id}}"> Alterar</a></td>
-                                        <td><a routerLink="../../app/deletarcliente/{{cli._id}}"> Deletar</a></td>
+                                        <td><a routerLink="../../app/cadastrarcliente/{{cli._id}}" class="btn btn-primary rounded-0 btn-block"> Alterar</a></td>
+                                        <td><a routerLink="../../app/deletarcliente/{{cli._id}}" class="btn btn-primary rounded-0 btn-block"> Deletar</a></td>
                                     </tr>
 
                                 </tbody>
