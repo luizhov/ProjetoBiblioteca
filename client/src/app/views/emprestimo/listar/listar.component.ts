@@ -23,6 +23,15 @@ export class ListarComponent implements OnInit {
     if(this._id!=null){
 this.devolver();
     }
+    this.service.procurar("a").subscribe((lista)=>{
+      console.log(lista);
+      
+      this.emprestimos = lista;
+      
+      
+      
+      
+    })
   }
 
 listar():void{
