@@ -1,0 +1,23 @@
+<input type="text" id="busca"  #value>
+<button   (click)="listar()"  type="button">Buscar</button>
+
+
+
+<table>
+    <ul  >
+        <li *ngFor="let emp of emprestimos">
+
+         {{emp._id}} 
+         {{emp.DataDevolucao}}
+         {{emp.livro}}
+         {{emp.cliente}}
+         {{emp.status}}
+         
+
+       
+     <a routerLink="../../app/devolver/{{emp._id}}"> Devolver</a>
+     
+    </li>
+       
+    </ul>
+</table>

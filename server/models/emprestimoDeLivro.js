@@ -8,7 +8,7 @@ const emprestimoDeLivro = new mongoose.Schema({
         required: [true, "O campo data é obrigatório."],
         default: Date.now,
     },
-    DataDevolução:{
+    DataDevolucao:{
         type: Date,
         required: [true],
     },
@@ -19,7 +19,12 @@ const emprestimoDeLivro = new mongoose.Schema({
     cliente: {
         type : String,
         required : [true,"O Cpf do cliente é obrigatório"]
-    }  
+    }  ,
+    status:{
+        type:String,
+        enum: ['devolvido','pendente']
+        
+    }
 
 })
 

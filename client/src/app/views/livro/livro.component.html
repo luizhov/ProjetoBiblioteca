@@ -1,1 +1,25 @@
-<p>livro works!</p>
+<input type="text" id="busca"  #value>
+<button   (click)="ListByTitulo()"  type="button">Buscar</button>
+
+
+
+<table>
+    <ul  >
+        <li *ngFor="let livro of livros">
+
+         {{livro._id}} 
+        {{livro.Titulo}}
+        {{livro.Status}}
+        {{livro.Autor}}
+        {{livro.AnoLancamento}}
+        {{livro.Genero}}
+     {{livro.Editora}}
+     <a routerLink="../../app/cadastrarlivro/{{livro._id}}"> Alterar</a>
+     <a routerLink="../../app/deletarlivro/{{livro._id}}"> Deletar</a>
+     <a routerLink="../../app/fazeremprestimo/{{livro._id}}"> Emprestar</a>
+    </li>
+       
+    </ul>
+</table>
+
+

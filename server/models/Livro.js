@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const livro = new mongoose.Schema({
-    Título:{
+    Titulo:{
         type: String,
         required: [true, "O campo nome do livro é obrigatório."]
     },
@@ -23,7 +23,7 @@ const livro = new mongoose.Schema({
     },
     Status:{
         type: String,
-        enum: ["EMPRESTADO", "DISPONÍVEL"],
+        
         default: "DISPONÍVEL"
     }
 });

@@ -1,1 +1,20 @@
-<p>cliente works!</p>
+<input type="text" id="busca"  #value>
+<button   (click)="ListByTitulo()"  type="button">Buscar</button>
+
+
+
+<table>
+    <ul  >
+        <li *ngFor="let cli of clientes">
+
+         nome:{{cli.Nome}}
+         cpf: {{cli.Cpf}}
+         
+
+       
+     <a routerLink="../../app/cadastrarcliente/{{cli._id}}"> Alterar</a>
+     <a routerLink="../../app/deletarcliente/{{cli._id}}"> Deletar</a>
+    </li>
+       
+    </ul>
+</table>
