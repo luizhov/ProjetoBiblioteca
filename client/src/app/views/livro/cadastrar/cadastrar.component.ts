@@ -33,7 +33,7 @@ ano;
 
   Create():void{
     
-    if(this._id==''){
+    if(this._id==null){
       this.livro= {
       
         Titulo:this.titulo,
