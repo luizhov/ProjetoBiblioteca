@@ -28,11 +28,14 @@
       background-color:#08fa00cb;
       align-items: center;
     }
+    h5{
+      font-weight: bold;
+    }
   </style>
     
     <div class="container py-5">
         <div class="row">
-            <div class="col-lg-12 mx-auto">
+            <div class="col-lg-13 mx-auto">
                 <div class="card rounded-0 border-0 shadow">
                     <div class="card-body p-5">
                         
@@ -47,6 +50,7 @@
                                         <th scope="col">Ano de Lançamento</th>
                                         <th scope="col">Gênero</th>
                                         <th scope="col">Editora</th>
+                                        <th scope="col">Códigos</th>
                                         <th scope="col">Status</th>
                                         <th></th>
                                         <th></th>
@@ -60,6 +64,7 @@
                                         <td>{{livro.AnoLancamento}}</td>
                                         <td>{{livro.Genero}}</td>
                                         <td>{{livro.Editora}}</td>
+                                        <td><h5>{{livro.Codigo}}</h5></td>
                                         <td><h6>{{livro.Status}}</h6></td>
 
                                         <td><a routerLink="../../app/cadastrarlivro/{{livro._id}}" class="btn btn-primary rounded-0 btn-block" > Alterar</a></td>

@@ -19,7 +19,11 @@ const livro = new mongoose.Schema({
     },
     Genero:{
         type: String,
-        required: [true, "O gênero do livro é obigatório."]
+        required: [true, "O gênero do livro é obrigatório."]
+    },
+    Codigo:{
+        type: String,
+        required: [true, "O código do livro é obrigatório."]
     },
     Status:{
         type: String,

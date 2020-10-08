@@ -9,46 +9,46 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
-  _id:string;
-  clientes:Cliente[];
+  _id: string;
+  clientes: Cliente[];
   @ViewChild('value') input;
 
-  constructor(private router:Router,private clienteservice:ClienteService,private route:ActivatedRoute) { }
+  constructor(private router: Router, private clienteservice: ClienteService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     console.log(this.route.snapshot.paramMap.get("id"));
-    
+
     this._id = this.route.snapshot.paramMap.get("id");
-    if(this._id!=null){
+    if (this._id != null) {
       this.delete();
     }
-    
-    
 
-    this.clienteservice.list().subscribe((lista)=>{
+
+
+    this.clienteservice.list().subscribe((lista) => {
       console.log(lista);
-      
-      
+
+
       this.clientes = lista;
-      
-      
-      
+
+
+
     })
   }
-  delete():void{
+  delete(): void {
     console.log(this._id);
-    this.clienteservice.delete(this._id).subscribe((retorno)=>{
-      window.location.href="http://localhost:4200/app/cliente";   
+    this.clienteservice.delete(this._id).subscribe((retorno) => {
+      window.location.href = "http://localhost:4200/app/cliente";
     })
   }
 
-  ListByTitulo(): void{
-    
-    this.clienteservice.listbytitulo(this.input.nativeElement.value).subscribe((retorno)=>{
+  ListByTitulo(): void {
+
+    this.clienteservice.listbytitulo(this.input.nativeElement.value).subscribe((retorno) => {
       console.log(retorno);
-      
-      
+
+
     })
-      }
+  }
 
 }

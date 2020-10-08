@@ -22,10 +22,13 @@ content-type: application/json
     ]
 }
 
+###
+GET http://localhost:1234/cliente/listar/728
 
 ###
+GET http://localhost:1234/livro/listar/5f7f3847a00d1f0b38afa5cd
 
-
+###
 POST http://localhost:1234/livro/emprestar
 content-type: application/json
 

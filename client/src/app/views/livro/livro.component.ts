@@ -3,11 +3,6 @@ import {LivroService} from 'src/app/services/livro.service';
 import { Component, ElementRef, OnInit, ViewChild, ɵɵqueryRefresh } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
-
-
-
-
 @Component({
   selector: 'app-livro',
   templateUrl: './livro.component.html',

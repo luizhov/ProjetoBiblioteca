@@ -5,6 +5,7 @@ export class Livro{
     Autor:string;
     AnoLancamento:number;
     Editora:string;
+    Codigo:String;
     Genero:string;
 
 

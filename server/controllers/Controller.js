@@ -15,6 +15,7 @@ class LivroController{
           res.status(500).json(error);
         }
     }
+
     async listarLivros(req,res){
       try{
         
@@ -26,6 +27,7 @@ class LivroController{
         res.status(500).json(error);
       }
   }
+
   async listarLivroByName(req,res){
     try{
       
@@ -36,6 +38,16 @@ class LivroController{
       console.log(error);
       res.status(500).json(error);
     }
+}
+
+async listarLivroByCodigo(req,res){
+  try{
+    var result =await cliente.findOne({"Codigo": req.params.codigo});
+      res.status(200).json(result);
+  }catch(error){
+    console.log(error);
+    res.status(500).json(error);
+  }
 }
 
 async updateLivro(req,res){
@@ -101,7 +113,7 @@ async deletarLivro(req,res){
   async listarClienteByCff(req,res){
     try{
       
-      var result =await cliente.findOne({"Cpf": req.params.id});
+      var result =await cliente.findOne({"Cpf": req.params.cpf});
       res.status(200).json(result);
 
     }catch(error){
@@ -132,11 +144,8 @@ async devolver(req,res){
     var result = await emprestimo.findOne({"_id": req.params.id});
     
           
-         var c =  await livro.findByIdAndUpdate({"_id": result.livro},{"Status":"DISPONÍVEL"})
-          
-          
-          
-    
+    var c =  await livro.findByIdAndUpdate({"_id": result.livro},{"Status":"DISPONÍVEL"})
+
     res.status(200).json({"sucesso":"a"});
   } catch (error) {
     console.log(error);
