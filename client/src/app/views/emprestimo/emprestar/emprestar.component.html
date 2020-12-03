@@ -57,21 +57,28 @@
 
                         <!--  Bootstrap table-->
                         <div class="table-responsive" align="center">
-                            
                                 <h1> Confirmar CPF do cliente </h1>
                                 <input type="text" placeholder="Cpf" [(ngModel)]="cpf">     <br>                         
                                 <a class="btn btn-primary rounded-0 " id="insertRow" (click)="emprestar()" >Emprestar Livro</a>
-
-                            
-                            <table class="table">
-                                <thead>
-                                </thead>
-                                <tbody>
-
-
-                                </tbody>
-                            </table>
                         </div>
+
+                        <div class="table-responsive">
+                            <br>
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Cliente</th>
+                                  <th scope="col">CPF</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let cli of clientes">
+                                  <td>{{cli.Nome}}</td>
+                                  <td>{{cli.Cpf}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
                     </div>
                 </div>
             </div>

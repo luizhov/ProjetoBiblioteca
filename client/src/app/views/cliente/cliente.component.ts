@@ -16,23 +16,15 @@ export class ClienteComponent implements OnInit {
   constructor(private router: Router, private clienteservice: ClienteService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get("id"));
 
+    console.log(this.route.snapshot.paramMap.get("id"));
     this._id = this.route.snapshot.paramMap.get("id");
     if (this._id != null) {
       this.delete();
     }
-
-
-
     this.clienteservice.list().subscribe((lista) => {
       console.log(lista);
-
-
       this.clientes = lista;
-
-
-
     })
   }
   delete(): void {
@@ -46,9 +38,6 @@ export class ClienteComponent implements OnInit {
 
     this.clienteservice.listbytitulo(this.input.nativeElement.value).subscribe((retorno) => {
       console.log(retorno);
-
-
     })
   }
-
 }

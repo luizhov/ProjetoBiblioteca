@@ -9,20 +9,20 @@ import { Observable } from "rxjs";
 export class emprestimoservice {
 
   baseURL = 'http://localhost:1234/cliente/listar';
-  
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) { }
 
 
-  devolver( titulo:string): Observable<Emprestimo>{
-      return this.http.get<Emprestimo>('http://localhost:1234/livro/devolver/'+titulo);
+  devolver(titulo: string): Observable<Emprestimo> {
+    return this.http.get<Emprestimo>('http://localhost:1234/livro/devolver/' + titulo);
   }
-  emprestar(emprestimo: Emprestimo): Observable<Emprestimo>{
+  emprestar(emprestimo: Emprestimo): Observable<Emprestimo> {
     return this.http.post<Emprestimo>('http://localhost:1234/livro/emprestar', emprestimo);
- 
-    
-}
-procurar(emprestimo: string): Observable<Emprestimo[]>{
+
+
+  }
+  procurar(emprestimo: string): Observable<Emprestimo[]> {
     return this.http.get<Emprestimo[]>('http://localhost:1234/livro/listaremprestimo');
- 
-}
+
+  }
 }

@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Emprestimo } from 'src/app/models/Emprestimo';
 import { Livro } from 'src/app/models/Livro';
 import { emprestimoservice } from 'src/app/services/emprestimo.service';
+import { Cliente } from 'src/app/models/Cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
 import { LivroService } from 'src/app/services/livro.service';
 
 @Component({
@@ -13,52 +15,50 @@ import { LivroService } from 'src/app/services/livro.service';
 export class ListarComponent implements OnInit {
   _id = '';
   @ViewChild('value') input;
-  emprestimos: Emprestimo[]=[];
-   map = new Map();
+  emprestimos: Emprestimo[] = [];
+  map = new Map();
 
-  constructor(private router: Router, private service: emprestimoservice, private route: ActivatedRoute,private livroservice:LivroService) { }
+  constructor(private router: Router, private service: emprestimoservice, private clienteservice: ClienteService, private route: ActivatedRoute, private livroservice: LivroService) { }
 
   ngOnInit(): void {
-    this._id = this.route.snapshot.paramMap.get("id");
 
+
+    this._id = this.route.snapshot.paramMap.get("id");
     if (this._id != null) {
       this.devolver();
     }
     this.service.procurar("a").subscribe((lista) => {
       console.log(lista);
-this.pegarnome();
+      this.pegarnome();
+      this.pegarCliente();
       this.emprestimos = lista;
-
-
-
-
     })
-    
-
-}
-pegarnome():void
-{
-  
-  
-    for(let a of this.emprestimos){
-      console.log(this.livroservice.listbyid(a.livro))
-      //this.map.set(,a)
-
-  
   }
 
-}
+  pegarCliente():void{
+    for(let b of this.emprestimos){
+      console.log(this.clienteservice.listbytitulo(b.cliente))
+    }
+  }
+
+  ListByTitulo(): void {
+
+    this.clienteservice.listbytitulo(this.input.nativeElement.value).subscribe((retorno) => {
+      console.log(retorno);
+    })
+  }
+
+  pegarnome(): void {
+    for (let a of this.emprestimos) {
+      console.log(this.livroservice.listbyid(a.livro))
+      //this.map.set(,a)  
+    }
+  }
+
   listar(): void {
-
-
     this.service.procurar("a").subscribe((lista) => {
       console.log(lista);
-
       this.emprestimos = lista;
-
-
-
-
     })
 
   }
@@ -68,9 +68,6 @@ pegarnome():void
       console.log(lista);
 
       window.location.href = "http://localhost:4200/app/livro";
-
-
-
 
     })
 

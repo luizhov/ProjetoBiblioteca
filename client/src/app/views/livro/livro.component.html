@@ -68,7 +68,7 @@
                                         <td><h6>{{livro.Status}}</h6></td>
 
                                         <td><a routerLink="../../app/cadastrarlivro/{{livro._id}}" class="btn btn-primary rounded-0 btn-block" > Alterar</a></td>
-                                        <td><a routerLink="../../app/deletarlivro/{{livro._id}}" class="btn btn-primary rounded-0 btn-block"> Deletar</a></td>
+                                        <td><a routerLink="../../app/deletarlivro/{{livro._id}}" class="btn btn-danger rounded-0 btn-block"> Deletar</a></td>
                                         <td><button id="{{livro._id}}c" (click)="emprestar(livro)" class="btn btn-primary rounded-0 btn-block" >Adicionar</button></td>
                                         <td><button id="{{livro._id}}t" (click)="tirar(livro)" class="btn btn-danger rounded-0 btn-block" hidden="true">Remover</button></td>
                                         <!-- <td><a routerLink="../../app/fazeremprestimo/{{livro._id}}" class="btn btn-primary rounded-0 btn-block"> Emprestar</a></td> -->
