@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Emprestimo } from 'src/app/models/Emprestimo';
 import { Livro } from 'src/app/models/Livro';
 import { emprestimoservice } from 'src/app/services/emprestimo.service';
+import { LivroService } from 'src/app/services/livro.service';
 
 @Component({
   selector: 'app-listar',
@@ -12,10 +13,10 @@ import { emprestimoservice } from 'src/app/services/emprestimo.service';
 export class ListarComponent implements OnInit {
   _id = '';
   @ViewChild('value') input;
-  emprestimos: Emprestimo[];
+  emprestimos: Emprestimo[]=[];
+   map = new Map();
 
-
-  constructor(private router: Router, private service: emprestimoservice, private route: ActivatedRoute) { }
+  constructor(private router: Router, private service: emprestimoservice, private route: ActivatedRoute,private livroservice:LivroService) { }
 
   ngOnInit(): void {
     this._id = this.route.snapshot.paramMap.get("id");
@@ -25,15 +26,28 @@ export class ListarComponent implements OnInit {
     }
     this.service.procurar("a").subscribe((lista) => {
       console.log(lista);
-
+this.pegarnome();
       this.emprestimos = lista;
 
 
 
 
     })
+    
+
+}
+pegarnome():void
+{
+  
+  
+    for(let a of this.emprestimos){
+      console.log(this.livroservice.listbyid(a.livro))
+      //this.map.set(,a)
+
+  
   }
 
+}
   listar(): void {
 
 

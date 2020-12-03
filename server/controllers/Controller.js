@@ -42,7 +42,7 @@ class LivroController{
 
 async listarLivroByCodigo(req,res){
   try{
-    var result =await cliente.findOne({"Codigo": req.params.codigo});
+    var result =await cliente.findOne({"_id": req.params.codigo});
       res.status(200).json(result);
   }catch(error){
     console.log(error);
@@ -180,6 +180,12 @@ try{
       try{
         
        var result =  await emprestimo.find({"status":"pendente"});
+       for(let a of result){
+         
+         console.log( await livro.findById({"_id": a.livro}));
+          var resul = await livro.findById({"_id": a.livro});
+        a.livro=resul.Titulo;
+       }
         res.status(200).json(result);
     
       }catch(error){

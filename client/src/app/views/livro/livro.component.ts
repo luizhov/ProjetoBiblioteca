@@ -3,6 +3,7 @@ import {LivroService} from 'src/app/services/livro.service';
 import { Component, ElementRef, OnInit, ViewChild, ɵɵqueryRefresh } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-livro',
   templateUrl: './livro.component.html',
@@ -11,13 +12,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LivroComponent implements OnInit {
   _id:string;
   livros:Livro[]= [];
+  livrosemp:Livro[]=[];
+  livrosquantidade:number;
+  livrourl:string ="";
   livro :Livro;
+  desabilitar:boolean;
   @ViewChild('value') input;
   
 
   constructor(private router:Router,private livroservice:LivroService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+  
+    
     console.log(this.route.snapshot.paramMap.get("id"));
     
     this._id = this.route.snapshot.paramMap.get("id");
@@ -25,7 +32,7 @@ export class LivroComponent implements OnInit {
       this.delete();
     }
     
-    
+  
 
     this.livroservice.list().subscribe((lista)=>{
       console.log(lista);
@@ -47,7 +54,27 @@ this.livroservice.listbytitulo(this.input.nativeElement.value).subscribe((retorn
   
 })
   }
-
+  emprestar(idlivro:Livro):void{
+    this.livrourl+= idlivro._id+".";
+    
+     
+    document.getElementById(idlivro._id+"t").hidden=false;
+  document.getElementById(idlivro._id+"c").hidden=true;
+  }
+finalizaremprestimo():void{
+  
+  
+  
+  window.location.href="../../app/fazeremprestimo?"+this.livrourl;
+}
+tirar(idlivro:Livro):void{
+  var teste =this.livrourl.split(idlivro._id);
+  this.livrourl= teste[0]+teste[1];
+  
+   
+  document.getElementById(idlivro._id+"c").hidden=false;
+  document.getElementById(idlivro._id+"t").hidden=true;
+}
   delete(): void{
     
     console.log(this._id);

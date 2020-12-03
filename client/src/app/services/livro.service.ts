@@ -15,6 +15,10 @@ export class LivroService {
   list(): Observable<Livro[]> {
     return this.http.get<Livro[]>(this.baseURL);
   }
+  listbyid(id:string): Observable<Livro[]> {
+    return this.http.get<Livro[]>('http://localhost:1234/livro/listar/id/'+id);
+  }
+
 
   listbytitulo( titulo:string): Observable<Livro[]>{
       return this.http.get<Livro[]>('http://localhost:1234/livro/listar/'+titulo);

@@ -14,7 +14,7 @@ router.get("/livro/listaremprestimo/:id", LivroController.listaremprestimoid);
 router.post("/livro/cadastrar", LivroController.cadastrarLivro);
 router.get("/livro/listar", LivroController.listarLivros);
 router.get("/livro/listar/:id", LivroController.listarLivroByName);
-router.get("/livro/listar/:codigo", LivroController.listarLivroByCodigo);
+router.get("/livro/listar/id/:codigo", LivroController.listarLivroByCodigo);
 router.post("/livro/alterar/", LivroController.updateLivro);
 router.get("/livro/deletar/:id", LivroController.deletarLivro);
 
